@@ -8,18 +8,57 @@
 		<title>Treidex Dev Log</title>
 
 		<style>
+			body {
+				font-family: CascadiaCode;
+				font-size: 12px;
+			}
+
+			.nav {
+				color: #C0C0B0;
+			}
+
 			.nav > * {
 				padding: 5px;
-				margin: 15px;
+				margin: 15px 5px;
 			}
 
 			.nav button {
 				background-color: #BBBBBB;
-				border-radius: 6px;
+				border-radius: 5px;
+
+				font-family: CascadiaCode;
+				font-size: 12px;
+			}
+
+			.goto {
+				width: 24px;
+				margin: auto 0px;
+				border-radius: 5px;
+				background-color: #4D4D4D;
+				color: #C0C0B0;
+				font-family: CascadiaCode;
+				font-size: 15px;
+			}
+
+			@font-face {
+				font-family: CascadiaCode;
+				src: url('/CascadiaCode.ttf');
+			}
+
+			#logDiv {
+				background-color: #3D3D3D;
+				padding: 5px;
+				max-width: 700px;
+				border-radius: 5px;
 			}
 
 			#log {
 				color: #AAAABA;
+				font-family: CascadiaCode;
+				white-space: pre-wrap;
+				font-size: 15px;
+
+				tab-size: 4;
 			}
 		</style>
 	</head>
@@ -28,27 +67,52 @@
 
 		<div class="nav">
 			<button class="prev-btn" onclick="Prev()">Previous</button>
+			Log #
+			<input type="number" onchange="Goto(value)" min="0" class="goto" value="Goto log...">
 			<button class="next-btn" onclick="Next()">Next</button>
 		</div>
 
-		<code id="log">Could not load devlog</code>
+		<div id="logDiv">
+			<pre id="log">Could not load devlog</code>
+		</div>
 
 		<div class="nav">
 			<button class="prev-btn" onclick="Prev()">Previous</button>
+			Log #
+			<input type="number" onchange="Goto(value)" min="0" class="goto" value="Goto log...">
 			<button class="next-btn" onclick="Next()">Next</button>
 		</div>
 
 		<script>
-			const latestLogNumber = 0; // 👈 REMEMBER TO UPDATE!!
+			const latestLogNumber = 1; // 👈 REMEMBER TO UPDATE!!
 
 			var logNum = latestLogNumber;
+			let lsLogNum = sessionStorage.getItem("log-num");
+			if (lsLogNum != undefined)
+				logNum = lsLogNum;
+
 			const logEl = document.getElementById("log");
+
+			const gotos = document.getElementsByClassName("goto");
+			for (let goto of gotos)
+			{
+				goto.value = logNum;
+				goto.max = latestLogNumber;
+			}
 
 			const prevBtns = document.getElementsByClassName("prev-btn");
 			const nextBtns = document.getElementsByClassName("next-btn");
 
 			LoadLog();
 			Update();
+
+			function Goto(where)
+			{
+				logNum = where;
+				Update();
+				for (let goto of gotos)
+					goto.value = logNum;
+			}
 
 			function Prev()
 			{
@@ -67,12 +131,16 @@
 				if (logNum <= 0)
 				{
 					logNum = 0;
+					for (let btn of nextBtns)
+						btn.disabled = false;
 					for (let btn of prevBtns)
 						btn.disabled = true;
 				}
 				if (logNum >= latestLogNumber)
 				{
 					logNum = latestLogNumber;
+					for (let btn of prevBtns)
+						btn.disabled = false;
 					for (let btn of nextBtns)
 						btn.disabled = true;
 				}
@@ -84,6 +152,9 @@
 					for (let btn of nextBtns)
 						btn.disabled = false;
 				}
+
+				sessionStorage.setItem("log-num", logNum);
+				LoadLog();
 			}
 
 			function LoadLog()
