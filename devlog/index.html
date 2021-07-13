@@ -2,19 +2,89 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Treidex Dev Log</title>
+
+	<style>
+		.nav {
+			overflow: hidden;
+		}
+
+		.nav > * {
+			padding: 5px;
+			margin: 15px;
+			float: left;
+		}
+	</style>
 </head>
 <body>
-	<p id="log">Hi?</p>
+	<div class="nav">
+		<button class="prev-btn" onclick="Prev()">Previous</button>
+		<button class="next-btn" onclick="Next()">Next</button>
+	</div>
+
+	<p id="log">Could not load devlog</p>
+
+	<div class="nav">
+		<button class="prev-btn" onclick="Prev()">Previous</button>
+		<button class="next-btn" onclick="Next()">Next</button>
+	</div>
+
 	<script>
-		var client = new XMLHttpRequest();
-		client.open('GET', '0.txt');
-		client.onreadystatechange = function() {
-			document.getElementById("log").innerText = client.responseText;
+		const latestLogNumber = 0; // 👈 REMEMBER TO UPDATE!!
+
+		var logNum = latestLogNumber;
+		const logEl = document.getElementById("log");
+
+		const prevBtns = document.getElementsByClassName("prev-btn");
+		const nextBtns = document.getElementsByClassName("next-btn");
+
+		LoadLog();
+		Update();
+
+		function Prev()
+		{
+			logNum--;
+			Update();
 		}
-		client.send();
+
+		function Next()
+		{
+			logNum++;
+			Update();
+		}
+
+		function Update()
+		{
+			if (logNum <= 0)
+			{
+				logNum = 0;
+				for (let btn of prevBtns)
+					btn.disabled = true;
+			}
+			if (logNum >= latestLogNumber)
+			{
+				logNum = latestLogNumber;
+				for (let btn of nextBtns)
+					btn.disabled = true;
+			}
+
+			if (logNum > 0 && logNum < latestLogNumber)
+			{
+				for (let btn of prevBtns)
+					btn.disabled = false;
+				for (let btn of nextBtns)
+					btn.disabled = false;
+			}
+		}
+
+		function LoadLog()
+		{
+			let client = new XMLHttpRequest();
+			client.open("GET", logNum + ".txt");
+			client.onreadystatechange = () =>
+			{ logEl.innerText = client.responseText; }
+			client.send();
+		}
 	</script>
 </body>
 </html>

@@ -1,3 +1,22 @@
+DevLog #0 - 07/12/21
+---
+
 Hello guys, I don't know if anyone will see this but, welcome to my devlog.
 
-So, I'm working on Symple Code, a compiler for a language similar to C; I want it to feel like C# with low-level design from C++, and a little bit of my style salted in. What I plan
+So, I'm working on Symple Code, a compiler for a language similar to C; I want it to feel like C# (cs) with low-level design from C++ (cpp), and a little bit of my style salted in. I plan to use pointers, although in `volatile` code, basically unsafe context. Refences will also be implemented, C library importing, obviosly, as well as most core cs/cpp features. Properties will exist, as well as a fellow dear `->` (arrow) operator, this will allow the user to make a custom function for the right side, ie:
+```
+	float operator ->GudNumber(String) =>
+		ret 6.9;
+
+	"Actual"->GudNumber; // <-- will return 6.9
+```
+
+...maybe even add a `.` (dot) operator in volatile context. I also plan to have `industry prefrences`, basically if your working at an industry and you want everything to be private, const, etc. by default; I'll have an option for that; if you're the kind of guy who wants it easy, type less, everything public, mutable, volatile, you name it! We got you covered.
+
+Moving towards the present, welcome to my 5th iteration of syc (Symple Code), I always end up quiting when I try to implement structs. But fear not fellow friend, for I have a secret weapon up my sleave, 2 actually:
+	1) I'm making it in cs instead of cpp
+	2) I'm usinng LLVM now
+
+This is an advantage for 1: cs helps me thing more high-level (duh), and 2: LLVM is an amazing library, it makes codegen easier and just all the nitty-gritty stuff like types and cross-platform; if you don't already use LLVM for making languages, do so, please.
+
+All in all, thanks for comming and enjoying my first ever devlog, catch you in the next one; and until then: Cheers!
