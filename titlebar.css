@@ -1,4 +1,7 @@
 .titlebar {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 25px;
+    
     overflow: hidden;
     background-color: #333;
 }

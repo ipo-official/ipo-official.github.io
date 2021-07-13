@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <link rel="stylesheet" href="/titlebar.css">
+    <script src="/titlebar.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | July4-2021</title>
@@ -8,6 +10,7 @@
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body style="background-color: #404040;">
+    <div class="titlebar"></div>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
       <div id="unity-loading-bar">
@@ -66,7 +69,6 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-          unityInstance.SetFullscreen(1);
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
