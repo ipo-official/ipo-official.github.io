@@ -1,98 +1,99 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" href="../style.css">
-	<link rel="stylesheet" href="../titlebar.css">
-	<script src="../titlebar.js"></script>
-	<title>Treidex Dev Log</title>
+	<head>
+		<link rel="icon" href="/icon.png" type="icon/x-icon">
+		<link rel="stylesheet" href="/style.css">
+		<link rel="stylesheet" href="/titlebar.css">
+		<script src="/titlebar.js"></script>
+		<title>Treidex Dev Log</title>
 
-	<style>
-		.nav > * {
-			padding: 5px;
-			margin: 15px;
-		}
+		<style>
+			.nav > * {
+				padding: 5px;
+				margin: 15px;
+			}
 
-		.nav button {
-			background-color: #BBBBBB;
-			border-radius: 6px;
-		}
+			.nav button {
+				background-color: #BBBBBB;
+				border-radius: 6px;
+			}
 
-		#log {
-			color: #AAAABA;
-		}
-	</style>
-</head>
-<body>
-	<div class="titlebar"></div>
+			#log {
+				color: #AAAABA;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="titlebar"></div>
 
-	<div class="nav">
-		<button class="prev-btn" onclick="Prev()">Previous</button>
-		<button class="next-btn" onclick="Next()">Next</button>
-	</div>
+		<div class="nav">
+			<button class="prev-btn" onclick="Prev()">Previous</button>
+			<button class="next-btn" onclick="Next()">Next</button>
+		</div>
 
-	<code id="log">Could not load devlog</code>
+		<code id="log">Could not load devlog</code>
 
-	<div class="nav">
-		<button class="prev-btn" onclick="Prev()">Previous</button>
-		<button class="next-btn" onclick="Next()">Next</button>
-	</div>
+		<div class="nav">
+			<button class="prev-btn" onclick="Prev()">Previous</button>
+			<button class="next-btn" onclick="Next()">Next</button>
+		</div>
 
-	<script>
-		const latestLogNumber = 17; // 👈 REMEMBER TO UPDATE!!
+		<script>
+			const latestLogNumber = 17; // 👈 REMEMBER TO UPDATE!!
 
-		var logNum = latestLogNumber;
-		const logEl = document.getElementById("log");
+			var logNum = latestLogNumber;
+			const logEl = document.getElementById("log");
 
-		const prevBtns = document.getElementsByClassName("prev-btn");
-		const nextBtns = document.getElementsByClassName("next-btn");
+			const prevBtns = document.getElementsByClassName("prev-btn");
+			const nextBtns = document.getElementsByClassName("next-btn");
 
-		LoadLog();
-		Update();
-
-		function Prev()
-		{
-			logNum--;
+			LoadLog();
 			Update();
-		}
 
-		function Next()
-		{
-			logNum++;
-			Update();
-		}
-
-		function Update()
-		{
-			if (logNum <= 0)
+			function Prev()
 			{
-				logNum = 0;
-				for (let btn of prevBtns)
-					btn.disabled = true;
-			}
-			if (logNum >= latestLogNumber)
-			{
-				logNum = latestLogNumber;
-				for (let btn of nextBtns)
-					btn.disabled = true;
+				logNum--;
+				Update();
 			}
 
-			if (logNum > 0 && logNum < latestLogNumber)
+			function Next()
 			{
-				for (let btn of prevBtns)
-					btn.disabled = false;
-				for (let btn of nextBtns)
-					btn.disabled = false;
+				logNum++;
+				Update();
 			}
-		}
 
-		function LoadLog()
-		{
-			let client = new XMLHttpRequest();
-			client.open("GET", logNum + ".txt");
-			client.onreadystatechange = () =>
-			{ logEl.innerText = client.responseText; }
-			client.send();
-		}
-	</script>
-</body>
+			function Update()
+			{
+				if (logNum <= 0)
+				{
+					logNum = 0;
+					for (let btn of prevBtns)
+						btn.disabled = true;
+				}
+				if (logNum >= latestLogNumber)
+				{
+					logNum = latestLogNumber;
+					for (let btn of nextBtns)
+						btn.disabled = true;
+				}
+
+				if (logNum > 0 && logNum < latestLogNumber)
+				{
+					for (let btn of prevBtns)
+						btn.disabled = false;
+					for (let btn of nextBtns)
+						btn.disabled = false;
+				}
+			}
+
+			function LoadLog()
+			{
+				let client = new XMLHttpRequest();
+				client.open("GET", logNum + ".txt");
+				client.onreadystatechange = () =>
+				{ logEl.innerText = client.responseText; }
+				client.send();
+			}
+		</script>
+	</body>
 </html>
