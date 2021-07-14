@@ -1,0 +1,14 @@
+DevLog #3 - 07/14/21
+---
+
+Welcome fokes, got some news for you, syc is growing nicely, I have implemented simple binary expressions and codegen as well as compressed tree views and a platform to start off of. Other than that, I didn't do much in the last 2 days.
+
+I'm still a little new to LLVM, so I might take a 6th iteration, but I think I'm getting the hang of it, so no worries. Life is good, been playing some more BTD Battles.
+
+I took a look at other compilers like clang, rust, and beef (that's a language), and found how much simpler I'm making my compiler; hopefully that's a good thing, and not something that will bite me back in the future. Rust is like a madhouse, I guess after time and tons of features, anything will just get super complex; that might be the reason why I just redoed my language a ton, I have trouble planning things out, so it just got so spaghetti-like that I just gave up. C# and LLVM should make things easier though, but that's not a promise.
+
+Speaking of big projects, I've been watching a lot of Andreas Kling (OS Developer) lately, and when I finish syc and mess around with it, I want to make my own os. Call me crazy, but I'm a dreamer; kids can have dreams too!
+
+I would say I am way ahead of everybody else, people are just starting to make big projects in like their 20s or something, I'm not saying my age, but I am a young programmer for many people's expectations. Sadly, I can't say that forever, because time doesn't like it.
+
+Anyways, this was a longer than usual devlog, I still have things to say, but I will save it for later. One last thing though, I might start making a youtube devlog, stay tuned for that (whoever will see this), and good luck. ¡Adios!
