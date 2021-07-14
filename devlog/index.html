@@ -84,7 +84,7 @@
 		</div>
 
 		<script>
-			const latestLogNumber = 1; // 👈 REMEMBER TO UPDATE!!
+			const latestLogNumber = 2; // 👈 REMEMBER TO UPDATE!!
 
 			var logNum = latestLogNumber;
 			let lsLogNum = sessionStorage.getItem("log-num");
@@ -154,6 +154,8 @@
 				}
 
 				sessionStorage.setItem("log-num", logNum);
+				for (let goto of gotos)
+					goto.value = logNum;
 				LoadLog();
 			}
 
