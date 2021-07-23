@@ -1,0 +1,8 @@
+Devlog #3 - 07/23/21
+---
+
+Haven't been logging in a while, but I have done deving, I mainly made a game for GeoJam. The theme was Switch, so basically I made a game called Betrayer, where you attack enemies, and they go on your side, then when there are no more enemies, you betrayer your allies and now they're the enemies. It ended up more as a satisfying game somehow, but I like it; I hope I get a prize!
+
+On the side of syc, I have one gruesome task, have unsigned types in my language, this is a problem because LLVM doesn't have unsigned as an attribute for a type; I tried just remaking the whole class, but now that I think about it, I'm just gonna have a class that derives it that also stores whether it's unsigned or not.
+
+As a fun activity for you nerds, make a kernel that rickrolls;
