@@ -14,5 +14,5 @@ I had some trouble thinking of the name for the website, and after some consider
 	3) Hope and Wait
 		- Eventually, people will checkout my site, when they do, it will be like a dominoe effect; one person will share to another and another. The only problem is that I I need to be very lucky to have someone just go on github and see my website.
 
-Anyways, I think that's enough for today, don't forget to checkout Symple Code at https://github.com/SympleLib/SympleCode 😉
+Anyways, I think that's enough for today, don't forget to checkout Symple Code at <a href="https://github.com/SympleLib/SympleCode">https://github.com/SympleLib/SympleCode</a> 😉
 Hey, I need all the promotion I can get.
