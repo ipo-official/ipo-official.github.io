@@ -1,0 +1,10 @@
+Devlog #4 - 08/06/21
+---
+
+Syc is almost done! At least the mvp; I have a deadline for the 19th when school starts. I don't have all the features I want: function overloading, for-loops, classes, impls, enums, operator overloading, debugging, stdlib, some _*forced*_ naming conventions, templates, inline asm, syntax coloring, debugging, etc.
+
+But I really only need to fix bugs and maybe if I have time: texmate grammars. The thing is I don't have much time, recently I've been starting to have a life, but I might be able to work on it a bit. I also need to add docs, or maybe not.
+
+I haven't been logging for a while, I plan on logging once a week, see how things are going, but I'm at the stage in syc where you just grind and fix all the bugs without really adding any new features.
+
+One last thing; did you hear about the guy who played with fire? It was well done. 🤣🤣🤣
