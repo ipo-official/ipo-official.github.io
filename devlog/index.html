@@ -72,7 +72,7 @@
 		<div class="nav">
 			<button class="prev-btn" onclick="Prev()">Previous</button>
 			Log #
-			<input type="number" onchange="Goto(value)" min="0" class="goto" value="Goto log...">
+			<input type="number" onchange="Goto(value)" min="0" class="goto">
 			<button class="next-btn" onclick="Next()">Next</button>
 		</div>
 
@@ -83,12 +83,12 @@
 		<div class="nav">
 			<button class="prev-btn" onclick="Prev()">Previous</button>
 			Log #
-			<input type="number" onchange="Goto(value)" min="0" class="goto" value="Goto log...">
+			<input type="number" onchange="Goto(value)" min="0" class="goto">
 			<button class="next-btn" onclick="Next()">Next</button>
 		</div>
 
 		<script>
-			const latestLogNumber = 4; // 👈 REMEMBER TO UPDATE!!
+			const latestLogNumber = 5; // 👈 REMEMBER TO UPDATE!!
 
 			var logNum = latestLogNumber;
 			let lsLogNum = sessionStorage.getItem("log-num");
