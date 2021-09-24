@@ -3,12 +3,6 @@ let pos = 0
 
 const eqInput = document.getElementById('eq')
 
-function solve() {
-	src = eqInput.value
-	pos = 0
-	console.log(parseExpr())
-}
-
 function parseExpr(parentPrecedence = 0) {
 	let left = parsePrimExpr()
 
@@ -30,6 +24,8 @@ function parsePrimExpr() {
 
 	if (peek() == 'x') {
 		next()
+		if (val == NaN)
+			val = 1
 		return new Ast(AstKind.Var, val, val)
 	}
 
