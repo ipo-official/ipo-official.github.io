@@ -16,5 +16,5 @@ function LoadTitleBar()
 		titlebar.innerHTML = titlebarHtml;
 
 	if (localStorage.getItem('devlog') == null)
-		document.getElementById('devlog').innerHTML = '';
+		document.getElementById('devlog').remove();
 }
