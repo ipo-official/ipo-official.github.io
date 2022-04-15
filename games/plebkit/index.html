@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Client</title>
+    <title>PlebKit</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
-  <body>
+  <body id="body">
+    <h1 style="text-align: center; margin-top: 50px; font-size: 69px; color: red;">Go in Fullscreen plz or I will give u seizure</h1>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
@@ -23,6 +24,21 @@
         <div id="unity-build-title">Client</div>
       </div>
     </div>
+    <script>
+      var background = document.getElementById("body");
+      setInterval(function() {
+        background.style.backgroundColor = getRandomColor();
+      }, 500);
+
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+    </script>
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
@@ -82,8 +98,8 @@
         config.devicePixelRatio = 1;
         unityShowBanner('WebGL builds are not supported on mobile devices.');
       } else {
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.width = "1152px";
+        canvas.style.height = "648px";
       }
       loadingBar.style.display = "block";
 
