@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+    <div class="titlebar"></div>
+    <link rel="stylesheet" href="/titlebar.css">
+    <script src="/titlebar.js"></script>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>PlebKit</title>
+    <title>PlebKit - Not a Ripoff of GimKit</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body id="body">
-    <h1 style="text-align: center; margin-top: 50px; font-size: 69px; color: red;">Go in Fullscreen plz or I will give u seizure</h1>
+    <!-- <h1 style="text-align: center; margin-top: 50px; font-size: 69px; color: red;">Go in Fullscreen plz or I will give u seizure</h1> -->
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600></canvas>
       <div id="unity-loading-bar">
@@ -21,7 +24,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Client</div>
+        <div id="unity-build-title">Fullscreen 👉</div>
       </div>
     </div>
     <script>
@@ -79,7 +82,7 @@
         codeUrl: buildUrl + "/Build.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
-        productName: "Client",
+        productName: "PlebKit",
         productVersion: "0.1",
         showBanner: unityShowBanner,
       };
@@ -113,6 +116,8 @@
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
+
+          alert('Click Fullscreen plz or I will give u seizure');
         }).catch((message) => {
           alert(message);
         });
